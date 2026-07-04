@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HTML Form Website</title>
+
+    <style>
+        *{
+            margin:0;
+            padding:0;
+            box-sizing:border-box;
+            font-family:Arial, sans-serif;
+        }
+
+        body{
+            background:linear-gradient(135deg,#4facfe,#00f2fe);
+            display:flex;
+            justify-content:center;
+            align-items:center;
+            height:100vh;
+        }
+
+        .container{
+            background:white;
+            width:400px;
+            padding:30px;
+            border-radius:15px;
+            box-shadow:0 10px 25px rgba(0,0,0,0.3);
+        }
+
+        h2{
+            text-align:center;
+            color:#333;
+            margin-bottom:20px;
+        }
+
+        label{
+            display:block;
+            margin-top:12px;
+            font-weight:bold;
+        }
+
+        input[type=text],
+        input[type=email],
+        input[type=date]{
+            width:100%;
+            padding:10px;
+            margin-top:5px;
+            border:1px solid #ccc;
+            border-radius:5px;
+        }
+
+        .radio-group,
+        .checkbox-group{
+            margin-top:8px;
+        }
+
+        .radio-group label,
+        .checkbox-group label{
+            display:inline;
+            font-weight:normal;
+            margin-right:15px;
+        }
+
+        button{
+            width:100%;
+            padding:12px;
+            margin-top:20px;
+            border:none;
+            border-radius:5px;
+            background:#007BFF;
+            color:white;
+            font-size:16px;
+            cursor:pointer;
+        }
+
+        button:hover{
+            background:#0056b3;
+        }
+
+        .normal-btn{
+            background:#28a745;
+            margin-top:10px;
+        }
+
+        .normal-btn:hover{
+            background:#1e7e34;
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="container">
+
+    <h2>Registration Form</h2>
+
+    <form>
+
+        <label>Full Name</label>
+        <input type="text" placeholder="Enter your name" required>
+
+        <label>number</label>
+        <input type="number" placeholder="Enter your number" required>
+
+        <label>Select Date</label>
+        <input type="date">
+
+        <label>Gender</label>
+
+        <div class="radio-group">
+            <input type="radio" id="male" name="gender">
+            <label for="male">Male</label>
+
+            <input type="radio" id="female" name="gender">
+            <label for="female">Female</label>
+
+            <input type="radio" id="other" name="gender">
+            <label for="other">Other</label>
+        </div>
+
+        <label>Choose Your Skills</label>
+
+        <div class="checkbox-group">
+            <input type="checkbox" id="html">
+            <label for="html">HTML</label><br>
+
+            <input type="checkbox" id="css">
+            <label for="css">CSS</label><br>
+
+            <input type="checkbox" id="js">
+            <label for="js">JavaScript</label>
+        </div>
+
+        <button type="button" class="normal-btn"
+            onclick="alert('Welcome to My Website!')">
+            Click Me
+        </button>
+
+        <button type="submit">
+            Submit
+        </button>
+
+    </form>
+
+</div>
+
+</body>
+</html>
