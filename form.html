@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>GET and post form lab</title>
+</head>
+<body>
+<h1>PHP form lab</h1>
+<!--GET form-->
+<h2>GET method </h2>
+<form action="get.php" method="get">
+username:
+<input type="text" name="username"><br>
+<br>
+password:
+<input type="password" name="password"><br>
+<br>
+feedback:
+<textarea name="feedback"></textarea><br>
+<br>
+subject:
+<input type="checkbox" name+"subject[]" value="php">php
+<input type="checkbox" name+"subject[]" value="html">html
+<input type="checkbox" name+"subject[]" value="css">css
+<br><br>
+gender:
+<input type="radio" name+"gender" value="male">male
+<input type="radio" name+"gender" value="female">female
+<br><br>
+<input type="submit"  value="submit GET">
+<hr>
+<!--POST Form-->
+<h2>POST method</h2>
+
+<form  action="POST.php" method="POST">
+username:
+<input type="text" name="username"><br>
+<br>
+password:
+<input type="password" name="password"><br>
+<br>
+feedback:
+<textarea name="feedback"></textarea><br>
+<br>
+subject:
+<input type="checkbox" name+"subject[]" value="php">php
+<input type="checkbox" name+"subject[]" value="html">html
+<input type="checkbox" name+"subject[]" value="css">css
+<br><br>
+gender:
+<input type="radio" name+"gender" value="male">male
+<input type="radio" name+"gender" value="female">female
+<br><br>
+<input type="submit"  value="submit POST">
+
+
+</form>
+</body>
+</html>
+

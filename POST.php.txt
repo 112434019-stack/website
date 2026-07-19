@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>POST Response</title>
+</head>
+<body>
+<h1>POST method Response</h1>
+<?php
+$username=$_POST["username"]??";
+$password=$_POST["password"]??";
+$feedback=$_POST["feedback"]??";
+$gender=$_POST["gender"]??";
+$subjects=$_POST["subject"]??[];
+
+if(
+   empty(username) ||
+   empty(password) ||
+   empty(feedback) ||
+   empty(gender) 
+)
+{
+ echo"<h2 style="color:red;">Negative Response</h2>";
+ echo "Please fill all required fields.";
+}
+else
+{
+echo"<h2 style="color:green;">Positive Response</h2>";
+
+echo "Username: $username <br>";
+echo "Password: $password <br>";
+echo "Feedback: $feedback <br>";
+echo "Gender: $gender <br>";
+
+echo "subject:";
+if(!empty($subjects))
+{
+  echo implode(",", $subject);
+}
+else
+{
+  echo "none";
+}
+}
+?>
+<br><br>
+<a href="form.html">back</a>
+</body>
+</html>
