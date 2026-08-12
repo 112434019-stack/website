@@ -1,0 +1,413 @@
+<?php
+// PHP: Process the workout form
+$message = "";
+
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+
+    $name = htmlspecialchars($_POST["name"]);
+    $goal = htmlspecialchars($_POST["goal"]);
+    $day = htmlspecialchars($_POST["day"]);
+    $exercise = htmlspecialchars($_POST["exercise"]);
+    $sets = htmlspecialchars($_POST["sets"]);
+    $reps = htmlspecialchars($_POST["reps"]);
+
+    $message = "Workout plan created successfully for " . $name . "!";
+}
+?>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Gym Workout Planner</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            background: #f2f4f7;
+        }
+
+        header {
+            background: #111827;
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+
+        header h1 {
+            color: #22c55e;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1000px;
+            margin: 30px auto;
+        }
+
+        .dashboard {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 25px;
+        }
+
+        .card {
+            background: white;
+            padding: 25px;
+            border-radius: 12px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+
+        .card h2 {
+            margin-bottom: 20px;
+            color: #111827;
+        }
+
+        label {
+            display: block;
+            margin-top: 15px;
+            margin-bottom: 6px;
+            font-weight: bold;
+        }
+
+        input,
+        select {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ccc;
+            border-radius: 7px;
+        }
+
+        button {
+            width: 100%;
+            margin-top: 20px;
+            padding: 13px;
+            border: none;
+            border-radius: 7px;
+            background: #22c55e;
+            color: white;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background: #16a34a;
+        }
+
+        .workout-box {
+            background: #f9fafb;
+            padding: 15px;
+            margin-top: 15px;
+            border-left: 5px solid #22c55e;
+            border-radius: 6px;
+        }
+
+        .success {
+            background: #dcfce7;
+            color: #166534;
+            padding: 15px;
+            margin-bottom: 20px;
+            border-radius: 7px;
+            text-align: center;
+        }
+
+        .stats {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 10px;
+            margin-top: 20px;
+        }
+
+        .stat {
+            background: #111827;
+            color: white;
+            padding: 20px;
+            text-align: center;
+            border-radius: 8px;
+        }
+
+        .stat h3 {
+            color: #22c55e;
+            font-size: 25px;
+        }
+
+        footer {
+            text-align: center;
+            padding: 20px;
+            margin-top: 30px;
+            background: #111827;
+            color: white;
+        }
+
+        @media(max-width: 700px) {
+            .dashboard {
+                grid-template-columns: 1fr;
+            }
+
+            .stats {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<header>
+    <h1>💪 GYM WORKOUT PLANNER</h1>
+    <p>Create Your Personal Workout Plan</p>
+</header>
+
+<div class="container">
+
+    <?php if ($message != "") { ?>
+        <div class="success">
+            <?php echo $message; ?>
+        </div>
+    <?php } ?>
+
+    <div class="dashboard">
+
+        <!-- Workout Form -->
+        <div class="card">
+
+            <h2>🏋️ Create Workout</h2>
+
+            <form method="POST" action="" onsubmit="return validateForm()">
+
+                <label>Full Name</label>
+                <input
+                    type="text"
+                    id="name"
+                    name="name"
+                    placeholder="Enter your name"
+                >
+
+                <label>Workout Goal</label>
+                <select id="goal" name="goal">
+                    <option value="">Select Goal</option>
+                    <option value="Muscle Gain">Muscle Gain</option>
+                    <option value="Weight Loss">Weight Loss</option>
+                    <option value="Strength">Strength</option>
+                    <option value="Fitness">General Fitness</option>
+                </select>
+
+                <label>Workout Day</label>
+                <select id="day" name="day">
+                    <option value="">Select Day</option>
+                    <option value="Monday">Monday - Chest</option>
+                    <option value="Tuesday">Tuesday - Back</option>
+                    <option value="Wednesday">Wednesday - Legs</option>
+                    <option value="Thursday">Thursday - Shoulders</option>
+                    <option value="Friday">Friday - Arms</option>
+                    <option value="Saturday">Saturday - Cardio</option>
+                </select>
+
+                <label>Exercise</label>
+                <select id="exercise" name="exercise">
+                    <option value="">Select Exercise</option>
+                    <option value="Bench Press">Bench Press</option>
+                    <option value="Squats">Squats</option>
+                    <option value="Deadlift">Deadlift</option>
+                    <option value="Pull Ups">Pull Ups</option>
+                    <option value="Shoulder Press">Shoulder Press</option>
+                    <option value="Bicep Curl">Bicep Curl</option>
+                    <option value="Tricep Extension">Tricep Extension</option>
+                    <option value="Running">Running</option>
+                </select>
+
+                <label>Sets</label>
+                <input
+                    type="number"
+                    id="sets"
+                    name="sets"
+                    min="1"
+                    max="10"
+                    placeholder="Example: 3"
+                >
+
+                <label>Reps</label>
+                <input
+                    type="number"
+                    id="reps"
+                    name="reps"
+                    min="1"
+                    max="100"
+                    placeholder="Example: 12"
+                >
+
+                <button type="submit">
+                    Create Workout
+                </button>
+
+            </form>
+        </div>
+
+
+        <!-- Workout Summary -->
+        <div class="card">
+
+            <h2>📋 Workout Summary</h2>
+
+            <div class="workout-box">
+                <strong>Name:</strong>
+                <span id="displayName">Your Name</span>
+            </div>
+
+            <div class="workout-box">
+                <strong>Goal:</strong>
+                <span id="displayGoal">Select Goal</span>
+            </div>
+
+            <div class="workout-box">
+                <strong>Day:</strong>
+                <span id="displayDay">Select Day</span>
+            </div>
+
+            <div class="workout-box">
+                <strong>Exercise:</strong>
+                <span id="displayExercise">Select Exercise</span>
+            </div>
+
+            <div class="workout-box">
+                <strong>Sets:</strong>
+                <span id="displaySets">0</span>
+            </div>
+
+            <div class="workout-box">
+                <strong>Reps:</strong>
+                <span id="displayReps">0</span>
+            </div>
+
+            <div class="stats">
+
+                <div class="stat">
+                    <h3 id="totalSets">0</h3>
+                    <p>Sets</p>
+                </div>
+
+                <div class="stat">
+                    <h3 id="totalReps">0</h3>
+                    <p>Reps</p>
+                </div>
+
+                <div class="stat">
+                    <h3 id="totalVolume">0</h3>
+                    <p>Total</p>
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+<footer>
+    <p>© 2026 Gym Workout Planner</p>
+</footer>
+
+
+<script>
+
+    // JavaScript: Update workout summary automatically
+
+    document.getElementById("name").addEventListener("input", function() {
+        document.getElementById("displayName").textContent =
+            this.value || "Your Name";
+    });
+
+    document.getElementById("goal").addEventListener("change", function() {
+        document.getElementById("displayGoal").textContent =
+            this.value || "Select Goal";
+    });
+
+    document.getElementById("day").addEventListener("change", function() {
+        document.getElementById("displayDay").textContent =
+            this.value || "Select Day";
+    });
+
+    document.getElementById("exercise").addEventListener("change", function() {
+        document.getElementById("displayExercise").textContent =
+            this.value || "Select Exercise";
+    });
+
+    document.getElementById("sets").addEventListener("input", updateWorkout);
+
+    document.getElementById("reps").addEventListener("input", updateWorkout);
+
+
+    function updateWorkout() {
+
+        let sets = Number(document.getElementById("sets").value) || 0;
+        let reps = Number(document.getElementById("reps").value) || 0;
+
+        document.getElementById("displaySets").textContent = sets;
+        document.getElementById("displayReps").textContent = reps;
+
+        document.getElementById("totalSets").textContent = sets;
+        document.getElementById("totalReps").textContent = reps;
+
+        // Calculate total workout volume
+        let total = sets * reps;
+
+        document.getElementById("totalVolume").textContent = total;
+    }
+
+
+    // JavaScript validation
+
+    function validateForm() {
+
+        let name = document.getElementById("name").value;
+        let goal = document.getElementById("goal").value;
+        let day = document.getElementById("day").value;
+        let exercise = document.getElementById("exercise").value;
+        let sets = document.getElementById("sets").value;
+        let reps = document.getElementById("reps").value;
+
+        if (name == "") {
+            alert("Please enter your name.");
+            return false;
+        }
+
+        if (goal == "") {
+            alert("Please select your workout goal.");
+            return false;
+        }
+
+        if (day == "") {
+            alert("Please select a workout day.");
+            return false;
+        }
+
+        if (exercise == "") {
+            alert("Please select an exercise.");
+            return false;
+        }
+
+        if (sets == "" || sets <= 0) {
+            alert("Please enter valid sets.");
+            return false;
+        }
+
+        if (reps == "" || reps <= 0) {
+            alert("Please enter valid reps.");
+            return false;
+        }
+
+        return true;
+    }
+
+</script>
+
+</body>
+</html>
