@@ -1,0 +1,484 @@
+```html
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <title>Gym Admin Dashboard</title>
+
+    <style>
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: #eeeeee;
+        }
+
+        header {
+            background-color: #111;
+            color: white;
+            padding: 25px;
+            text-align: center;
+        }
+
+        .menu {
+            background-color: #222;
+            padding: 15px;
+            text-align: center;
+        }
+
+        .menu a {
+            color: white;
+            text-decoration: none;
+            margin: 12px;
+            font-weight: bold;
+        }
+
+        .menu a:hover {
+            color: #ff3333;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1100px;
+            margin: 25px auto;
+        }
+
+        .card-container {
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .card {
+            background-color: white;
+            padding: 20px;
+            flex: 1;
+            min-width: 200px;
+            border-radius: 10px;
+            box-shadow: 0 2px 8px gray;
+        }
+
+        .card h3 {
+            color: #d00000;
+        }
+
+        .section {
+            background-color: white;
+            margin-top: 25px;
+            padding: 25px;
+            border-radius: 10px;
+            box-shadow: 0 2px 8px gray;
+        }
+
+        h1 {
+            margin: 0;
+        }
+
+        h2 {
+            color: #d00000;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        th {
+            background-color: #222;
+            color: white;
+        }
+
+        th,
+        td {
+            border: 1px solid #999;
+            padding: 12px;
+            text-align: center;
+        }
+
+        tr:hover {
+            background-color: #f5f5f5;
+        }
+
+        input,
+        select {
+            padding: 10px;
+            width: 250px;
+            max-width: 100%;
+        }
+
+        button,
+        input[type="submit"],
+        input[type="reset"] {
+            background-color: #d00000;
+            color: white;
+            border: none;
+            padding: 10px 18px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        button:hover,
+        input[type="submit"]:hover,
+        input[type="reset"]:hover {
+            background-color: #990000;
+        }
+
+        .back {
+            display: inline-block;
+            margin-top: 20px;
+            background-color: #222;
+            color: white;
+            padding: 12px 20px;
+            text-decoration: none;
+            border-radius: 5px;
+        }
+
+        footer {
+            background-color: #111;
+            color: white;
+            text-align: center;
+            padding: 20px;
+            margin-top: 30px;
+        }
+
+        @media (max-width: 600px) {
+
+            .menu a {
+                display: block;
+                margin: 10px;
+            }
+
+            .container {
+                width: 95%;
+            }
+
+            .section {
+                overflow-x: auto;
+            }
+
+            table {
+                min-width: 700px;
+            }
+        }
+
+    </style>
+
+</head>
+
+<body>
+
+    <!-- Header -->
+    <header>
+        <h1>GYM ADMIN DASHBOARD</h1>
+        <p>Power Gym Management System</p>
+    </header>
+
+    <!-- Menu -->
+    <div class="menu">
+
+        <a href="index.html">Home</a>
+        <a href="#members">Members</a>
+        <a href="#prices">Prices</a>
+        <a href="#payments">Payments</a>
+        <a href="#addmember">Add Member</a>
+
+    </div>
+
+    <div class="container">
+
+        <!-- Dashboard -->
+        <div class="section">
+
+            <h2>Dashboard Details</h2>
+
+            <div class="card-container">
+
+                <div class="card">
+                    <h3>Total Members</h3>
+                    <p><b>100</b></p>
+                </div>
+
+                <div class="card">
+                    <h3>Total Trainers</h3>
+                    <p><b>5</b></p>
+                </div>
+
+                <div class="card">
+                    <h3>Active Plans</h3>
+                    <p><b>4</b></p>
+                </div>
+
+                <div class="card">
+                    <h3>Monthly Revenue</h3>
+                    <p><b>₹50,000</b></p>
+                </div>
+
+            </div>
+
+        </div>
+
+        <!-- Price Details -->
+        <div class="section" id="prices">
+
+            <h2>💰 Price Details</h2>
+
+            <table>
+
+                <tr>
+                    <th>Plan</th>
+                    <th>Duration</th>
+                    <th>Price</th>
+                    <th>Discount</th>
+                    <th>Final Price</th>
+                </tr>
+
+                <tr>
+                    <td>Basic</td>
+                    <td>1 Month</td>
+                    <td>₹1,000</td>
+                    <td>₹0</td>
+                    <td><b>₹1,000</b></td>
+                </tr>
+
+                <tr>
+                    <td>Standard</td>
+                    <td>3 Months</td>
+                    <td>₹2,500</td>
+                    <td>₹200</td>
+                    <td><b>₹2,300</b></td>
+                </tr>
+
+                <tr>
+                    <td>Premium</td>
+                    <td>6 Months</td>
+                    <td>₹4,500</td>
+                    <td>₹500</td>
+                    <td><b>₹4,000</b></td>
+                </tr>
+
+                <tr>
+                    <td>Annual</td>
+                    <td>1 Year</td>
+                    <td>₹8,000</td>
+                    <td>₹1,000</td>
+                    <td><b>₹7,000</b></td>
+                </tr>
+
+            </table>
+
+        </div>
+
+        <!-- Payment Details -->
+        <div class="section" id="payments">
+
+            <h2>💳 Payment Details</h2>
+
+            <p>Total Payments: <b>₹50,000</b></p>
+            <p>Paid Members: <b>80</b></p>
+            <p>Pending Payments: <b>₹10,000</b></p>
+            <p>Expired Memberships: <b>20</b></p>
+
+            <button onclick="paymentMessage()">
+                Check Payment Status
+            </button>
+
+        </div>
+
+        <!-- Add Member -->
+        <div class="section" id="addmember">
+
+            <h2>➕ Add Member</h2>
+
+            <form id="memberForm">
+
+                <label>Member ID:</label><br>
+                <input type="number" id="memberId" required>
+
+                <br><br>
+
+                <label>Name:</label><br>
+                <input type="text" id="memberName" required>
+
+                <br><br>
+
+                <label>Email:</label><br>
+                <input type="email" id="memberEmail" required>
+
+                <br><br>
+
+                <label>Phone:</label><br>
+                <input type="text" id="memberPhone" required>
+
+                <br><br>
+
+                <label>Plan:</label><br>
+
+                <select id="memberPlan">
+
+                    <option>Basic</option>
+                    <option>Standard</option>
+                    <option>Premium</option>
+                    <option>Annual</option>
+
+                </select>
+
+                <br><br>
+
+                <label>Status:</label>
+
+                <input type="radio"
+                       name="status"
+                       value="Active"
+                       checked>
+
+                Active
+
+                <input type="radio"
+                       name="status"
+                       value="Expired">
+
+                Expired
+
+                <br><br>
+
+                <label>Joining Date:</label><br>
+                <input type="date" id="joiningDate" required>
+
+                <br><br>
+
+                <input type="submit" value="Add Member">
+                <input type="reset" value="Clear">
+
+            </form>
+
+        </div>
+
+        <!-- Members -->
+        <div class="section" id="members">
+
+            <h2>👥 Members</h2>
+
+            <table>
+
+                <thead>
+
+                    <tr>
+                        <th>ID</th>
+                        <th>Name</th>
+                        <th>Email</th>
+                        <th>Phone</th>
+                        <th>Plan</th>
+                        <th>Status</th>
+                    </tr>
+
+                </thead>
+
+                <tbody id="memberTable">
+
+                    <tr>
+                        <td>1</td>
+                        <td>Arun</td>
+                        <td>arun@gmail.com</td>
+                        <td>9876543210</td>
+                        <td>Basic</td>
+                        <td>Active</td>
+                    </tr>
+
+                    <tr>
+                        <td>2</td>
+                        <td>Rahul</td>
+                        <td>rahul@gmail.com</td>
+                        <td>9876543211</td>
+                        <td>Standard</td>
+                        <td>Active</td>
+                    </tr>
+
+                    <tr>
+                        <td>3</td>
+                        <td>Tamil</td>
+                        <td>tamil@gmail.com</td>
+                        <td>9876543212</td>
+                        <td>Premium</td>
+                        <td>Expired</td>
+                    </tr>
+
+                </tbody>
+
+            </table>
+
+        </div>
+
+        <a class="back" href="index.html">
+            ← Back to Home
+        </a>
+
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2026 Power Gym. All Rights Reserved.</p>
+    </footer>
+
+
+    <!-- JavaScript -->
+    <script>
+
+        // Payment alert
+        function paymentMessage() {
+
+            alert(
+                "Payment Status\n\n" +
+                "Paid Members: 80\n" +
+                "Pending Payments: ₹10,000\n" +
+                "Expired Memberships: 20"
+            );
+
+        }
+
+
+        // Add new member
+        document.getElementById("memberForm").addEventListener("submit", function(event) {
+
+            event.preventDefault();
+
+            var id = document.getElementById("memberId").value;
+            var name = document.getElementById("memberName").value;
+            var email = document.getElementById("memberEmail").value;
+            var phone = document.getElementById("memberPhone").value;
+            var plan = document.getElementById("memberPlan").value;
+
+            var status =
+                document.querySelector(
+                    'input[name="status"]:checked'
+                ).value;
+
+            var table =
+                document.getElementById("memberTable");
+
+            var row = table.insertRow();
+
+            row.insertCell(0).innerHTML = id;
+            row.insertCell(1).innerHTML = name;
+            row.insertCell(2).innerHTML = email;
+            row.insertCell(3).innerHTML = phone;
+            row.insertCell(4).innerHTML = plan;
+            row.insertCell(5).innerHTML = status;
+
+            alert("Member added successfully! 🎉");
+
+            document.getElementById("memberForm").reset();
+
+        });
+
+    </script>
+
+</body>
+
+</html>
+```
+

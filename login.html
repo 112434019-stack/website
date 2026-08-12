@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Power Gym - Login & Registration</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: linear-gradient(135deg, #111, #d00000);
+            min-height: 100vh;
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .container {
+            width: 400px;
+            background: white;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 5px 20px black;
+        }
+
+        h1 {
+            text-align: center;
+            color: #d00000;
+            margin-bottom: 5px;
+        }
+
+        h2 {
+            text-align: center;
+            color: #333;
+        }
+
+        label {
+            display: block;
+            margin-top: 12px;
+            font-weight: bold;
+        }
+
+        input,
+        select {
+            width: 100%;
+            padding: 11px;
+            margin-top: 5px;
+            border: 1px solid #aaa;
+            border-radius: 5px;
+            font-size: 15px;
+        }
+
+        input:focus,
+        select:focus {
+            outline: none;
+            border-color: #d00000;
+        }
+
+        button {
+            width: 100%;
+            padding: 12px;
+            margin-top: 20px;
+            background-color: #d00000;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #990000;
+        }
+
+        .switch {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        .switch a {
+            color: #d00000;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        .message {
+            text-align: center;
+            margin-top: 15px;
+            font-weight: bold;
+        }
+
+        #registerBox {
+            display: none;
+        }
+
+        .back {
+            display: block;
+            text-align: center;
+            margin-top: 15px;
+            color: #d00000;
+            text-decoration: none;
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="container">
+
+    <h1>POWER GYM</h1>
+
+    <!-- LOGIN -->
+
+    <div id="loginBox">
+
+        <h2>Member Login</h2>
+
+        <form id="loginForm">
+
+            <label>Username</label>
+            <input type="text"
+                   id="loginUsername"
+                   placeholder="Enter username"
+                   required>
+
+            <label>Password</label>
+            <input type="password"
+                   id="loginPassword"
+                   placeholder="Enter password"
+                   required>
+
+            <button type="submit">Login</button>
+
+        </form>
+
+        <p id="loginMessage" class="message"></p>
+
+        <div class="switch">
+            Don't have an account?
+            <a onclick="showRegister()">Register</a>
+        </div>
+
+    </div>
+
+
+    <!-- REGISTRATION -->
+
+    <div id="registerBox">
+
+        <h2>Member Registration</h2>
+
+        <form id="registerForm">
+
+            <label>Full Name</label>
+            <input type="text"
+                   id="name"
+                   placeholder="Enter full name"
+                   required>
+
+            <label>Email</label>
+            <input type="email"
+                   id="email"
+                   placeholder="Enter email"
+                   required>
+
+            <label>Phone Number</label>
+            <input type="tel"
+                   id="phone"
+                   placeholder="Enter phone number"
+                   required>
+
+            <label>Gender</label>
+            <select id="gender" required>
+                <option value="">Select Gender</option>
+                <option>Male</option>
+                <option>Female</option>
+                <option>Other</option>
+            </select>
+
+            <label>Username</label>
+            <input type="text"
+                   id="registerUsername"
+                   placeholder="Create username"
+                   required>
+
+            <label>Password</label>
+            <input type="password"
+                   id="registerPassword"
+                   placeholder="Create password"
+                   required>
+
+            <label>Confirm Password</label>
+            <input type="password"
+                   id="confirmPassword"
+                   placeholder="Confirm password"
+                   required>
+
+            <label>Membership Plan</label>
+            <select id="plan" required>
+                <option value="">Select Plan</option>
+                <option>Basic - 1 Month</option>
+                <option>Standard - 3 Months</option>
+                <option>Premium - 6 Months</option>
+                <option>Annual - 1 Year</option>
+            </select>
+
+            <button type="submit">Register</button>
+
+        </form>
+
+        <p id="registerMessage" class="message"></p>
+
+        <div class="switch">
+            Already have an account?
+            <a onclick="showLogin()">Login</a>
+        </div>
+
+    </div>
+
+    <a href="index.html" class="back">
+        ← Back to Home
+    </a>
+
+</div>
+
+
+<script>
+
+    // Show Registration
+    function showRegister() {
+
+        document.getElementById("loginBox").style.display = "none";
+
+        document.getElementById("registerBox").style.display = "block";
+    }
+
+
+    // Show Login
+    function showLogin() {
+
+        document.getElementById("registerBox").style.display = "none";
+
+        document.getElementById("loginBox").style.display = "block";
+    }
+
+
+    // Registration
+    document.getElementById("registerForm").addEventListener("submit", function(event) {
+
+        event.preventDefault();
+
+        let name = document.getElementById("name").value;
+        let email = document.getElementById("email").value;
+        let phone = document.getElementById("phone").value;
+        let gender = document.getElementById("gender").value;
+        let username = document.getElementById("registerUsername").value;
+        let password = document.getElementById("registerPassword").value;
+        let confirmPassword = document.getElementById("confirmPassword").value;
+        let plan = document.getElementById("plan").value;
+
+        let message = document.getElementById("registerMessage");
+
+        // Check password
+        if (password !== confirmPassword) {
+
+            message.style.color = "red";
+            message.innerHTML = "Passwords do not match!";
+
+            return;
+        }
+
+        // Store registration details
+        localStorage.setItem("name", name);
+        localStorage.setItem("email", email);
+        localStorage.setItem("phone", phone);
+        localStorage.setItem("gender", gender);
+        localStorage.setItem("username", username);
+        localStorage.setItem("password", password);
+        localStorage.setItem("plan", plan);
+
+        message.style.color = "green";
+        message.innerHTML = "Registration successful!";
+
+        setTimeout(function() {
+
+            showLogin();
+
+        }, 1000);
+
+    });
+
+
+    // Login
+    document.getElementById("loginForm").addEventListener("submit", function(event) {
+
+        event.preventDefault();
+
+        let username = document.getElementById("loginUsername").value;
+        let password = document.getElementById("loginPassword").value;
+
+        let savedUsername = localStorage.getItem("username");
+        let savedPassword = localStorage.getItem("password");
+
+        let message = document.getElementById("loginMessage");
+
+        if (username === savedUsername && password === savedPassword) {
+
+            message.style.color = "green";
+            message.innerHTML = "Login successful!";
+
+            setTimeout(function() {
+
+                window.location.href = "dashboard.html";
+
+            }, 1000);
+
+        } else {
+
+            message.style.color = "red";
+            message.innerHTML = "Invalid username or password!";
+
+        }
+
+    });
+
+</script>
+
+</body>
+</html>

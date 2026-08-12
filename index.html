@@ -1,0 +1,327 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Power Gym - Home</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: #f2f2f2;
+            color: #222;
+        }
+
+        header {
+            background-color: #111;
+            color: white;
+            text-align: center;
+            padding: 35px 20px;
+        }
+
+        header h1 {
+            font-size: 40px;
+            margin: 0;
+        }
+
+        header p {
+            font-size: 18px;
+        }
+
+        nav {
+            background-color: #222;
+            padding: 15px;
+            text-align: center;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin: 10px;
+            font-weight: bold;
+        }
+
+        nav a:hover {
+            color: #ff3333;
+        }
+
+        section {
+            background-color: white;
+            margin: 25px auto;
+            padding: 25px;
+            width: 90%;
+            max-width: 1000px;
+            border-radius: 10px;
+            box-shadow: 0 2px 8px gray;
+        }
+
+        h2 {
+            color: #d00000;
+        }
+
+        h3 {
+            color: #333;
+        }
+
+        button {
+            background-color: #d00000;
+            color: white;
+            border: none;
+            padding: 12px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 15px;
+        }
+
+        button:hover {
+            background-color: #990000;
+        }
+
+        ul {
+            line-height: 2;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        th {
+            background-color: #222;
+            color: white;
+        }
+
+        th,
+        td {
+            border: 1px solid #999;
+            padding: 12px;
+            text-align: center;
+        }
+
+        tr:hover {
+            background-color: #f5f5f5;
+        }
+
+        .offer {
+            background-color: #fff0f0;
+            border: 2px solid #d00000;
+        }
+
+        .offer h2 {
+            color: #d00000;
+        }
+
+        .price {
+            font-size: 20px;
+            font-weight: bold;
+            color: #008000;
+        }
+
+        footer {
+            background-color: #111;
+            color: white;
+            text-align: center;
+            padding: 20px;
+            margin-top: 30px;
+        }
+
+        @media (max-width: 600px) {
+
+            header h1 {
+                font-size: 30px;
+            }
+
+            nav a {
+                display: block;
+                margin: 8px;
+            }
+
+            section {
+                width: 95%;
+                padding: 15px;
+                overflow-x: auto;
+            }
+
+            table {
+                min-width: 600px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Header -->
+    <header>
+        <h1>POWER GYM</h1>
+        <p>Build Your Body, Build Your Confidence</p>
+    </header>
+
+    <!-- Navigation -->
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="#services">Services</a>
+        <a href="#prices">Prices</a>
+        <a href="#offers">Offers</a>
+        <a href="#contact">Contact</a>
+    </nav>
+
+    <!-- Home -->
+    <section>
+
+        <h2>Welcome to Power Gym</h2>
+
+        <p>
+            Welcome to Power Gym! We help you become stronger,
+            healthier and more confident.
+        </p>
+
+        <h3>Start Your Fitness Journey Today!</h3>
+
+
+        <a href="login.html">
+          <button type="button">Join Now</button>
+        </a>
+
+        <br><br>
+
+        <a href="admin.html">
+            <button>Admin Dashboard</button>
+        </a>
+
+    </section>
+
+    <!-- Services -->
+    <section id="services">
+
+        <h2>Our Services</h2>
+
+        <ul>
+            <li>Weight Training</li>
+            <li>Cardio Training</li>
+            <li>Personal Training</li>
+            <li>Workout Plans</li>
+            <li>Fitness Classes</li>
+        </ul>
+
+    </section>
+
+    <!-- Price Details -->
+    <section id="prices">
+
+        <h2>💰 Membership Price Details</h2>
+
+        <table>
+
+            <tr>
+                <th>Plan</th>
+                <th>Duration</th>
+                <th>Original Price</th>
+                <th>Offer</th>
+                <th>Offer Price</th>
+            </tr>
+
+            <tr>
+                <td>Basic</td>
+                <td>1 Month</td>
+                <td><del>₹1,000</del></td>
+                <td>10% OFF</td>
+                <td class="price">₹900</td>
+            </tr>
+
+            <tr>
+                <td>Standard</td>
+                <td>3 Months</td>
+                <td><del>₹2,500</del></td>
+                <td>20% OFF</td>
+                <td class="price">₹2,000</td>
+            </tr>
+
+            <tr>
+                <td>Premium</td>
+                <td>6 Months</td>
+                <td><del>₹4,500</del></td>
+                <td>25% OFF</td>
+                <td class="price">₹3,375</td>
+            </tr>
+
+            <tr>
+                <td>Annual</td>
+                <td>1 Year</td>
+                <td><del>₹8,000</del></td>
+                <td>30% OFF</td>
+                <td class="price">₹5,600</td>
+            </tr>
+
+        </table>
+
+    </section>
+
+    <!-- Special Offers -->
+    <section id="offers" class="offer">
+
+        <h2>🔥 Special Offers</h2>
+
+        <ul>
+            <li><b>New Member:</b> 10% OFF</li>
+            <li><b>3 Month Plan:</b> 20% OFF</li>
+            <li><b>6 Month Plan:</b> 25% OFF</li>
+            <li><b>Annual Plan:</b> 30% OFF</li>
+            <li><b>Annual Plan:</b> 2 Free Personal Training Sessions</li>
+        </ul>
+
+        <h3>🎉 Limited Time Offer!</h3>
+
+        <p>
+            Join Power Gym today and start your fitness journey.
+        </p>
+
+        <button onclick="offerMessage()">
+            Get Offer
+        </button>
+
+    </section>
+
+    <!-- Contact -->
+    <section id="contact">
+
+        <h2>Contact Us</h2>
+
+        <p>📍 Chennai, Tamil Nadu</p>
+        <p>📞 Phone: 98765 43210</p>
+        <p>📧 Email: powergym@gmail.com</p>
+
+    </section>
+
+    <!-- Footer -->
+    <footer>
+
+        <p>&copy; 2026 Power Gym. All Rights Reserved.</p>
+
+    </footer>
+
+    <script>
+
+        function welcomeMessage() {
+            alert("Welcome to Power Gym! 💪\nStart your fitness journey today.");
+        }
+
+        function offerMessage() {
+            alert("🎉 Congratulations!\nYou can get our special membership offers.");
+        }
+
+    </script>
+
+</body>
+
+</html>
+
