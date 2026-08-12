@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Gym Price Details</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(135deg, #111, #333);
+            color: white;
+            text-align: center;
+            min-height: 100vh;
+            padding: 40px 20px;
+        }
+
+        h1 {
+            font-size: 40px;
+            margin-bottom: 10px;
+            color: #ff4757;
+        }
+
+        .subtitle {
+            color: #ddd;
+            margin-bottom: 40px;
+            font-size: 18px;
+        }
+
+        .plans {
+            display: flex;
+            justify-content: center;
+            align-items: stretch;
+            gap: 25px;
+            flex-wrap: wrap;
+        }
+
+        .plan {
+            background: white;
+            color: #222;
+            width: 280px;
+            padding: 30px 25px;
+            border-radius: 15px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4);
+            transition: 0.3s;
+            position: relative;
+        }
+
+        .plan:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 35px rgba(255, 71, 87, 0.4);
+        }
+
+        .plan h2 {
+            color: #e63946;
+            font-size: 28px;
+            margin-bottom: 15px;
+        }
+
+        .price {
+            font-size: 32px;
+            font-weight: bold;
+            color: #111;
+            margin: 10px 0;
+        }
+
+        .month {
+            color: #777;
+            margin-bottom: 20px;
+        }
+
+        .plan ul {
+            list-style: none;
+            padding: 0;
+            margin-bottom: 25px;
+            line-height: 2;
+            text-align: left;
+        }
+
+        .plan ul li {
+            border-bottom: 1px solid #eee;
+        }
+
+        button {
+            width: 100%;
+            background: #e63946;
+            color: white;
+            border: none;
+            padding: 13px;
+            border-radius: 7px;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        button:hover {
+            background: #b71c1c;
+            transform: scale(1.05);
+        }
+
+        .popular {
+            border: 3px solid #e63946;
+        }
+
+        .badge {
+            position: absolute;
+            top: -15px;
+            right: 20px;
+            background: #e63946;
+            color: white;
+            padding: 7px 15px;
+            border-radius: 20px;
+            font-size: 13px;
+            font-weight: bold;
+        }
+
+        #message {
+            margin-top: 35px;
+            font-size: 20px;
+            color: #fff;
+            font-weight: bold;
+        }
+
+        @media (max-width: 700px) {
+            h1 {
+                font-size: 30px;
+            }
+
+            .plans {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .plan {
+                width: 90%;
+                max-width: 350px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <h1>GYM MEMBERSHIP PLANS</h1>
+
+    <p class="subtitle">
+        Choose the best plan for your fitness journey
+    </p>
+
+    <div class="plans">
+
+        <!-- Basic Plan -->
+        <div class="plan">
+            <h2>Basic</h2>
+
+            <p class="price">₹999</p>
+            <p class="month">Per Month</p>
+
+            <ul>
+                <li>✔ Gym Access</li>
+                <li>✔ Cardio Equipment</li>
+                <li>✔ Locker Facility</li>
+                <li>✘ Personal Trainer</li>
+            </ul>
+
+            <button onclick="selectPlan('Basic', 999)">
+                Join Now
+            </button>
+        </div>
+
+
+        <!-- Standard Plan -->
+        <div class="plan popular">
+
+            <span class="badge">POPULAR</span>
+
+            <h2>Standard</h2>
+
+            <p class="price">₹1,499</p>
+            <p class="month">Per Month</p>
+
+            <ul>
+                <li>✔ Gym Access</li>
+                <li>✔ Cardio Equipment</li>
+                <li>✔ Locker Facility</li>
+                <li>✔ Personal Trainer</li>
+            </ul>
+
+            <button onclick="selectPlan('Standard', 1499)">
+                Join Now
+            </button>
+        </div>
+
+
+        <!-- Premium Plan -->
+        <div class="plan">
+
+            <h2>Premium</h2>
+
+            <p class="price">₹2,499</p>
+            <p class="month">Per Month</p>
+
+            <ul>
+                <li>✔ Gym Access</li>
+                <li>✔ All Equipment</li>
+                <li>✔ Locker Facility</li>
+                <li>✔ Personal Trainer</li>
+                <li>✔ Diet Plan</li>
+            </ul>
+
+            <button onclick="selectPlan('Premium', 2499)">
+                Join Now
+            </button>
+        </div>
+
+    </div>
+
+
+    <div id="message"></div>
+
+
+    <script>
+
+        function selectPlan(planName, price) {
+
+            let message =
+                "You selected the " +
+                planName +
+                " Plan. Monthly Price: ₹" +
+                price;
+
+            document.getElementById("message").innerHTML = message;
+
+            alert(
+                "Thank you for choosing the " +
+                planName +
+                " Plan!"
+            );
+        }
+
+    </script>
+
+</body>
+
+</html>
